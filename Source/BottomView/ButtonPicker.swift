@@ -76,7 +76,7 @@ class ButtonPicker: UIButton {
   // MARK: - Configuration
 
   func setupButton() {
-    backgroundColor = UIColor.white
+    backgroundColor = self.configuration.buttonPickerBgColor
     layer.cornerRadius = Dimensions.buttonSize / 2
     accessibilityLabel = "Take photo"
     addTarget(self, action: #selector(pickerButtonDidPress(_:)), for: .touchUpInside)
@@ -91,8 +91,8 @@ class ButtonPicker: UIButton {
   }
 
   @objc func pickerButtonDidPress(_ button: UIButton) {
-    backgroundColor = UIColor.white
-    numberLabel.textColor = UIColor.black
+    backgroundColor = self.configuration.buttonPickerdPBgColor
+    numberLabel.textColor = self.configuration.buttonPickerNumberColor
     numberLabel.sizeToFit()
     delegate?.buttonDidPress()
   }

@@ -15,7 +15,9 @@ import UIKit
   @objc public var pickerButtonColor = UIColor.white
   @objc public var borderPickerBtnBgColor = UIColor.clear
   @objc public var borderPickerBtnBorderColor = UIColor.white.cgColor
-
+  @objc public var buttonPickerBgColor = UIColor.white
+  @objc public var buttonPickerNumberColor = UIColor.black
+  @objc public var buttonPickerdPBgColor = UIColor.gray
   // MARK: Fonts
 
   @objc public var numberLabelFont = UIFont.systemFont(ofSize: 19, weight: UIFont.Weight.bold)
