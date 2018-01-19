@@ -12,6 +12,9 @@ import UIKit
   @objc public var noCameraColor = UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1)
   @objc public var settingsColor = UIColor.white
   @objc public var bottomContainerColor = UIColor(red: 0.09, green: 0.11, blue: 0.13, alpha: 1)
+  @objc public var pickerButtonColor = UIColor.white
+  @objc public var borderPickerBtnBgColor = UIColor.clear
+  @objc public var borderPickerBtnBorderColor = UIColor.white.cgColor
 
   // MARK: Fonts
 
