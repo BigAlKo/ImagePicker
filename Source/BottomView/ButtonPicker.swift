@@ -91,14 +91,14 @@ class ButtonPicker: UIButton {
   }
 
   @objc func pickerButtonDidPress(_ button: UIButton) {
-    backgroundColor = self.configuration.buttonPickerdPBgColor
+    backgroundColor = self.configuration.buttonPickerBgColor
     numberLabel.textColor = self.configuration.buttonPickerNumberColor
     numberLabel.sizeToFit()
     delegate?.buttonDidPress()
   }
 
   @objc func pickerButtonDidHighlight(_ button: UIButton) {
-    numberLabel.textColor = UIColor.white
+    numberLabel.textColor = self.configuration.buttonPickerdPBgColor
     backgroundColor = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1)
   }
 }
