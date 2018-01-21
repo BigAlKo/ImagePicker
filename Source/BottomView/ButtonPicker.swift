@@ -19,6 +19,7 @@ class ButtonPicker: UIButton {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
     label.font = self.configuration.numberLabelFont
+    label.tintColor = self.configuration.buttonPickerNumberColor
 
     return label
     }()

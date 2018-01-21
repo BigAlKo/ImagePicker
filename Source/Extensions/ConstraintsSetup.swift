@@ -103,15 +103,16 @@ extension ImagePickerController {
 
   func setupConstraints() {
     let attributes: [NSLayoutAttribute] = [.bottom, .right, .width]
-    let topViewAttributes: [NSLayoutAttribute] = [.left, .top, .width]
-
+    let topViewAttributes: [NSLayoutAttribute] = [.left, .width]
+    let navBarAttributes: [NSLayoutAttribute] = [.left, .top, .width]
+    
     for attribute in attributes {
       view.addConstraint(NSLayoutConstraint(item: bottomContainer, attribute: attribute,
         relatedBy: .equal, toItem: view, attribute: attribute,
         multiplier: 1, constant: 0))
     }
 
-    for attribute: NSLayoutAttribute in [.left, .top, .width] {
+    for attribute: NSLayoutAttribute in [.left, .width] {
       view.addConstraint(NSLayoutConstraint(item: cameraController.view, attribute: attribute,
         relatedBy: .equal, toItem: view, attribute: attribute,
         multiplier: 1, constant: 0))
@@ -124,7 +125,10 @@ extension ImagePickerController {
     }
     
     view.addConstraint(NSLayoutConstraint(item: topView, attribute: .top, relatedBy: .equal,
-        toItem: self.topLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0))
+        toItem: navigationBar, attribute: .bottom, multiplier: 1, constant: 0))
+    
+    view.addConstraint(NSLayoutConstraint(item: cameraController, attribute: .top, relatedBy: .equal,
+        toItem: navigationBar, attribute: .bottom, multiplier: 1, constant: 0))
 
     view.addConstraint(NSLayoutConstraint(item: bottomContainer, attribute: .height,
       relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
@@ -137,6 +141,19 @@ extension ImagePickerController {
     view.addConstraint(NSLayoutConstraint(item: cameraController.view, attribute: .height,
       relatedBy: .equal, toItem: view, attribute: .height,
       multiplier: 1, constant: -BottomContainerView.Dimensions.height))
+    
+    for attribute in topViewAttributes {
+      view.addConstraint(NSLayoutConstraint(item: navigationBar, attribute: attribute,
+                                            relatedBy: .equal, toItem: self.view, attribute: attribute,
+                                            multiplier: 1, constant: 0))
+    }
+    
+    
+    
+    view.addConstraint(NSLayoutConstraint(item: navigationBar, attribute: .height,
+      relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
+      multiplier: 1, constant: 44))
+
   }
 }
 

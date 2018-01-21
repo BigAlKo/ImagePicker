@@ -66,6 +66,13 @@ open class ImagePickerController: UIViewController {
 
     return view
     }()
+  
+  lazy var navigationBar: UINavigationBar = {
+    let bar: UINavigationBar = UINavigationBar()
+    bar.barTintColor = self.configuration.navBarTintColor
+    
+    return bar
+  }()
 
   var volume = AVAudioSession.sharedInstance().outputVolume
 
@@ -111,7 +118,7 @@ open class ImagePickerController: UIViewController {
   open override func viewDidLoad() {
     super.viewDidLoad()
 
-    for subview in [cameraController.view, galleryView, bottomContainer, topView] {
+    for subview in [cameraController.view, galleryView, bottomContainer, topView, navigationBar] {
       view.addSubview(subview!)
       subview?.translatesAutoresizingMaskIntoConstraints = false
     }

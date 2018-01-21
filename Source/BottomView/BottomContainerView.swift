@@ -39,6 +39,7 @@ open class BottomContainerView: UIView {
     let button = UIButton()
     button.setTitle(self.configuration.cancelButtonTitle, for: UIControlState())
     button.titleLabel?.font = self.configuration.doneButton
+    button.tintColor = self.configuration.doneButtonColor
     button.addTarget(self, action: #selector(doneButtonDidPress(_:)), for: .touchUpInside)
 
     return button

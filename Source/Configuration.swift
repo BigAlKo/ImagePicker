@@ -18,6 +18,9 @@ import UIKit
   @objc public var buttonPickerBgColor = UIColor.white
   @objc public var buttonPickerNumberColor = UIColor.black
   @objc public var buttonPickerdPBgColor = UIColor.gray
+  @objc public var doneButtonColor = UIColor.black
+  @objc public var navBarTintColor = UIColor.black
+  
   // MARK: Fonts
 
   @objc public var numberLabelFont = UIFont.systemFont(ofSize: 19, weight: UIFont.Weight.bold)
