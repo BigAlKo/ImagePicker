@@ -40,6 +40,8 @@ import UIKit
   @objc public var settingsTitle = "Settings"
   @objc public var requestPermissionTitle = "Permission denied"
   @objc public var requestPermissionMessage = "Please, allow the application to access to your photo library."
+  @objc public var navBarTitle = ""
+  @objc public var navBarTitleView = UIView()
 
   // MARK: Dimensions
 
@@ -61,6 +63,7 @@ import UIKit
   @objc public var allowedOrientations = UIInterfaceOrientationMask.all
   @objc public var allowVolumeButtonsToTakePicture = true
   @objc public var useLowResolutionPreviewImage = false
+  @objc public var useNavBarTitleView = false
 
   // MARK: Images
   @objc public var indicatorView: UIView = {
@@ -70,7 +73,11 @@ import UIKit
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()
+  
+  
+  
 
+  
   override public init() {}
 }
 

@@ -153,7 +153,7 @@ extension ImagePickerController {
     }
     
     view.addConstraint(NSLayoutConstraint(item: topView, attribute: .top, relatedBy: .equal,
-        toItem: navigationBar, attribute: .bottom, multiplier: 1, constant: 0))
+        toItem: view, attribute: .top, multiplier: 1, constant: 0))
     
     view.addConstraint(NSLayoutConstraint(item: topView, attribute: .height,
                                           relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,

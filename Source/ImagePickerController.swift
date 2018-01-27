@@ -73,6 +73,15 @@ open class ImagePickerController: UIViewController {
     
     return bar
   }()
+  
+  lazy var navItem: UINavigationItem = {
+    let navItem: UINavigationItem = UINavigationItem()
+    navItem.title = self.configuration.navBarTitle
+    if (self.configuration.useNavBarTitleView) {
+      navItem.titleView = UIImageView(image: #imageLiteral(resourceName: "svote_schriftzug_1.png"))
+    }
+    return navItem
+  }()
 
   var volume = AVAudioSession.sharedInstance().outputVolume
 
@@ -118,6 +127,8 @@ open class ImagePickerController: UIViewController {
   open override func viewDidLoad() {
     super.viewDidLoad()
 
+    navigationBar.setItems([navItem], animated: false)
+    
     for subview in [cameraController.view, galleryView, bottomContainer, topView, navigationBar] {
       view.addSubview(subview!)
       subview?.translatesAutoresizingMaskIntoConstraints = false
@@ -128,7 +139,7 @@ open class ImagePickerController: UIViewController {
 
     view.backgroundColor = UIColor.white
     view.backgroundColor = configuration.mainColor
-
+    
     cameraController.view.addGestureRecognizer(panGestureRecognizer)
 
     subscribe()
