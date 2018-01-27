@@ -145,6 +145,11 @@ extension ImagePickerController {
       relatedBy: .equal, toItem: view, attribute: .height,
       multiplier: 1, constant: -BottomContainerView.Dimensions.height - navigationBar.frame.height))
     
+    view.addConstraint(NSLayoutConstraint(item: cameraController.view, attribute: .height,
+                                          relatedBy: .equal, toItem: view, attribute: .height,
+                                          multiplier: 1, constant: 0))
+    
+    
     // TopView
     for attribute in topViewAttributes {
       view.addConstraint(NSLayoutConstraint(item: topView, attribute: attribute,
