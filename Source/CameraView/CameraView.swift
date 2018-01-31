@@ -88,7 +88,7 @@ class CameraView: UIViewController, CLLocationManagerDelegate, CameraManDelegate
     return gesture
     }()
 
-  let cameraMan = CameraMan()
+  let cameraMan = Singleton.sharedInstance.cameraMan
 
   var previewLayer: AVCaptureVideoPreviewLayer?
   weak var delegate: CameraViewDelegate?

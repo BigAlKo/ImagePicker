@@ -1,4 +1,6 @@
 import UIKit
+import AVFoundation
+import PhotosUI
 
 protocol BottomContainerViewDelegate: class {
 
@@ -8,7 +10,45 @@ protocol BottomContainerViewDelegate: class {
   func imageStackViewDidPress()
 }
 
-open class BottomContainerView: UIView {
+open class BottomContainerView: UIView, CameraManDelegate {
+  
+  let cameraMan = Singleton.sharedInstance.cameraMan
+  //weak var delegate: CameraViewDelegate?
+  var previewLayer: AVCaptureVideoPreviewLayer?
+  var animationTimer: Timer?
+  var locationManager: LocationManager?
+  var startOnFrontCamera: Bool = false
+
+  // CameraManDelegate
+  func cameraManNotAvailable(_ cameraMan: CameraMan) {
+    
+  }
+  
+  func cameraMan(_ cameraMan: CameraMan, didChangeInput input: AVCaptureDeviceInput) {
+    
+  }
+  
+  func cameraManDidStart(_ cameraMan: CameraMan) {
+    setupPreviewLayer()
+  }
+  
+  func setupPreviewLayer() {
+    let layer = AVCaptureVideoPreviewLayer(session: cameraMan.session)
+    
+    layer.backgroundColor = configuration.mainColor.cgColor
+    layer.autoreverses = true
+    layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+    
+    self.layer.insertSublayer(layer, at: 0)
+    layer.frame = self.layer.frame
+    self.clipsToBounds = true
+    
+    previewLayer = layer
+  }
+  
+  func showNoCamera(_ show: Bool) {
+    
+  }
 
   struct Dimensions {
     static let height: CGFloat = 101
