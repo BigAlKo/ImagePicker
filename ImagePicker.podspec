@@ -13,5 +13,4 @@ Pod::Spec.new do |s|
   s.resource_bundles = { 'ImagePicker' => ['Images/*.{png}'] }
   s.frameworks = 'AVFoundation'
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
-  s.dependency 'BSImagePicker', :git => 'https://github.com/BigAlKo/BSImagePicker.git'
 end
